@@ -61,7 +61,7 @@ export class Header extends Component {
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
-                        <StyledInputBase
+                        <StyledInputBase className='w-36 md:w-56 lg:w-72'
                             placeholder="Search…"
                             inputProps={{ 'aria-label': 'search' }}
                             onKeyDown={this.props.onKeyDown}

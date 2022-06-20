@@ -1,5 +1,5 @@
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
@@ -7,6 +7,8 @@ import { withRouter } from '../utils/navigation';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import Letter_m from '../assets/images/Letter_m.png';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { ThemeContext } from '../utils/context'
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -51,34 +53,57 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export class Header extends Component {
-    render() {
-        return (
-            <div className='sticky top-0 w-full px-4 py-0 bg-gray-900'>
-                <Toolbar className='flex flex-row justify-between'>
-                    <Link to="/" className='flex flex-row text-red-700 text-3xl py-1'>
-                        <div className='w-20 m-0'>
-                            <img src={Letter_m} alt="" />
-                        </div>
-                        <div className='pt-3'>
-                            {this.props.title}
-                            <p className='text-sm text-slate-600'>React Movies, by Halim.</p>
-                        </div>
-                    </Link>
-                    <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
-                        <StyledInputBase className='w-36 md:w-56 lg:w-72'
-                            placeholder="Search…"
-                            inputProps={{ 'aria-label': 'search' }}
-                            onKeyDown={this.props.onKeyDown}
-                        />
-                    </Search>
-                </Toolbar>
-            </div>
-        )
+const Header = (props) => {
+    const { theme, setTheme } = useContext(ThemeContext);
+
+    const handleChangeTheme = (mode) => {
+        setTheme(mode);
     }
+
+    return (
+        <div className='sticky top-0 w-full px-4 py-0 bg-gray-900'>
+            <Toolbar className='flex flex-row justify-between'>
+                <Link to="/" className='flex flex-row text-red-700 text-3xl py-1'>
+                    <div className='w-20 m-0'>
+                        <img src={Letter_m} alt="" />
+                    </div>
+                    <div className='pt-3'>
+                        {props.title}
+                        <p className='text-sm text-slate-600'>React Movies, by Halim.</p>
+                    </div>
+                </Link>
+                <Link to="/favorites">
+                    <button className="text-red-800 font-bold bg-gray-800 hover:bg-gray-700 py-2 px-8 rounded-lg shadow-sm shadow-gray-600">
+                        Favorite Movies
+                    </button>
+                </Link>
+
+                <Search>
+                    <SearchIconWrapper>
+                        <SearchIcon />
+                    </SearchIconWrapper>
+                    <StyledInputBase className='w-36 md:w-56 lg:w-72'
+                        placeholder="Search…"
+                        inputProps={{ 'aria-label': 'search' }}
+                        onKeyDown={props.onKeyDown}
+                    />
+                </Search>
+                {theme === "dark" ? (
+                    <FaSun
+                        className="w-8 h-8 text-white"
+                        onClick={() => handleChangeTheme("light")}
+                    />
+                ) : (
+                    <FaMoon
+                        className="w-8 h-8 text-white"
+                        onClick={() => handleChangeTheme("dark")}
+                    />
+                )}
+            </Toolbar>
+
+
+        </div>
+    )
 }
 
 export default withRouter(Header)

@@ -16,7 +16,7 @@ const Homepage = (props) => {
 
     return (
         <Layout title={title}>
-            <div className="py-8 mx-16 text-black font-bold text-2xl">Favorites Movies</div>
+            <div className="py-8 mx-16 text-black font-bold text-2xl">Favorite Movies</div>
             <div className='grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-3 lg:grid-cols-5 m-4 gap-8 md:gap-5'>
                 {favorites.map((item) => (
                     <Card

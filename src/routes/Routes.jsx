@@ -37,7 +37,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Navigate to="/homepage" />} />
                     <Route path="/homepage" element={<Homepage />} />
-                    <Route path="/favorite" element={<Favorites />} />
+                    <Route path="/favorites" element={<Favorites />} />
                     <Route path="/movie/:movie_id" element={<Detail />} />
                     <Route
                         path="*"

@@ -15,8 +15,8 @@ import '../styles/App.css';
 
 const Homepage = (props) => {
   const navigate = useNavigate();
+  const title = useState('Movlix');
   const [data, setData] = useState([]);
-  const [title, setTitle] = useState('Movlix');
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
 
@@ -25,23 +25,27 @@ const Homepage = (props) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log("TEST");
+  }, [page]);
+
   function fetchData() {
     const newPage = page + 1;
-    // setTimeout(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&language=en-US&page=${page}`,
-      )
-      .then((response) => {
-        const { results } = response.data;
-        const temp = data.slice();
-        temp.push(...results);
-        setData(temp);
-        setPage(newPage);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-    // }, 1500);
+    setTimeout(() => {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/now_playing?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&language=en-US&page=${page}`,
+        )
+        .then((response) => {
+          const { results } = response.data;
+          const temp = data.slice();
+          temp.push(...results);
+          setData(temp);
+          setPage(newPage);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    }, 1500);
   }
 
 
@@ -53,8 +57,8 @@ const Homepage = (props) => {
     const newPage = page + 1;
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&language=en-US&page=${page}`, requestOptions)
       .then((response) => response.json())
-      .then((data) => {
-        const { results } = data;
+      .then((res) => {
+        const { results } = res;
         const temp = data.slice();
         temp.push(...results);
         setData(temp);
@@ -95,7 +99,8 @@ const Homepage = (props) => {
               key={item.id}
               titleItem={item.title}
               imgItem={item.poster_path}
-              onClickItem={() => navigate(`movie/${item.id}`)}
+              onClickItem={() => navigate(`/movie/${item.id}`)}
+              onClickFav={() => setPage(page + 1)}
             />
           ))}
         </div>

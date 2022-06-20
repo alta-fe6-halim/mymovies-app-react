@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MdFavorite } from 'react-icons/md';
+import Button from './Button';
 
 class Card extends Component {
     render() {
@@ -14,9 +14,9 @@ class Card extends Component {
                         alt={this.props.imgItem} />
                     <p className='text-black font-bold py-3 text-center'>{this.props.titleItem}</p>
                 </div>
-                <button className="text-black bg-slate-300 p-2 rounded-full shadow-md shadow-gray-400" onClick={this.props.onClickFav}>
-                    Add to Favorite <MdFavorite className='text-white m-auto' />
-                </button>
+                <div className='flex flex-row m-auto'>
+                    <Button onClick={this.props.onClickFav} label="Add to Favorite🤍" />
+                </div>
             </div>
         );
     }

@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import CustomHeader from "./Header";
+import React, { Component } from "react";
 
 class Layout extends Component {
     render() {

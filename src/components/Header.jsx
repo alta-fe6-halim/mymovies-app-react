@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 
-import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
+import { withRouter } from '../utils/navigation';
 import SearchIcon from '@mui/icons-material/Search';
-import { withRouter } from '../utils/navigation'
+import { styled, alpha } from '@mui/material/styles';
+import Letter_m from '../assets/images/Letter_m.png';
+
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -52,10 +54,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export class Header extends Component {
     render() {
         return (
-            <div className='sticky top-0 w-full px-10 py-2 bg-zinc-900'>
-                <Toolbar className='flex justify-between'>
-                    <Link to="/" className='text-red-700 text-xl'>
-                        {this.props.title}
+            <div className='sticky top-0 w-full px-4 py-0 bg-gray-900'>
+                <Toolbar className='flex flex-row justify-between'>
+                    <Link to="/" className='flex flex-row text-red-700 text-3xl py-1'>
+                        <div className='w-20 m-0'>
+                            <img src={Letter_m} alt="" />
+                        </div>
+                        <div className='pt-3'>
+                            {this.props.title}
+                            <p className='text-sm text-slate-600'>React Movies, by Halim.</p>
+                        </div>
                     </Link>
                     <Search>
                         <SearchIconWrapper>

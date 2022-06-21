@@ -6,7 +6,7 @@ import InputBase from '@mui/material/InputBase';
 import { withRouter } from '../utils/navigation';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
-import Letter_m from '../assets/images/Letter_m.png';
+import LetterM from '../assets/images/LetterM.png';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { ThemeContext } from '../utils/context'
 
@@ -65,7 +65,7 @@ const Header = (props) => {
             <Toolbar className='flex flex-row justify-between'>
                 <Link to="/" className='flex flex-row text-red-700 text-3xl py-1'>
                     <div className='w-20 m-0'>
-                        <img src={Letter_m} alt="" />
+                        <img src={LetterM} alt="LetterM" />
                     </div>
                     <div className='pt-3'>
                         {props.title}

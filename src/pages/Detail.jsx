@@ -25,7 +25,7 @@ const Detail = (props) => {
         const { movie_id } = props.params
         axios
             .get(
-                `https://api.themoviedb.org/3/movie/${movie_id}?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&append_to_response=videos`,
+                `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${process.env.REACT_APP_API_KEY}&append_to_response=videos`,
             )
             .then((response) => {
                 const { data } = response;

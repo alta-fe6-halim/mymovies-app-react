@@ -1,6 +1,6 @@
 Deployment by Vercel CLI: https://movlix-hahahlm-react-app.vercel.app/
 
-
+REACT MOVIES DONE & HAS DEPLOYED
 
 # Getting Started with Create React App
 

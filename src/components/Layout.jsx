@@ -1,15 +1,13 @@
 import CustomHeader from "./Header";
-import React, { Component } from "react";
+import React from "react";
 
-class Layout extends Component {
-    render() {
-        return (
-            <div className="w-full h-screen flex flex-col overflow-auto bg-slate-50 dark:bg-black" >
-                <CustomHeader title={this.props.title} onKeyDown={this.props.onKeyDown} />
-                <div className="h-full w-full">{this.props.children}</div>
-            </div>
-        );
-    }
+const Layout = (props) => {
+    return (
+        <div className="w-full h-screen flex flex-col overflow-auto bg-slate-50 dark:bg-black" >
+            <CustomHeader title={props.title} onKeyDown={props.onKeyDown} />
+            <div className="h-full w-full">{props.children}</div>
+        </div>
+    );
 }
 
 export default Layout;

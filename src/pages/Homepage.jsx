@@ -32,21 +32,21 @@ const Homepage = (props) => {
 
   function fetchData() {
     const newPage = page + 1;
-    // setTimeout(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&page=${page}`,
-      )
-      .then((response) => {
-        const { results } = response.data;
-        const temp = movie.slice();
-        temp.push(...results);
-        setMovie(temp);
-        setPage(newPage);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setLoading(false));
-    // }, 1500);
+    setTimeout(() => {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`,
+        )
+        .then((response) => {
+          const { results } = response.data;
+          const temp = movie.slice();
+          temp.push(...results);
+          setMovie(temp);
+          setPage(newPage);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setLoading(false));
+    }, 1500);
   }
 
 
@@ -56,7 +56,7 @@ const Homepage = (props) => {
       headers: { 'Content-Type': 'application/json' },
     };
     const newPage = page + 1;
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&page=${page}`, requestOptions)
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`, requestOptions)
       .then((response) => response.json())
       .then((res) => {
         const { results } = res;
@@ -73,7 +73,7 @@ const Homepage = (props) => {
     if (e.keyCode === 13) {
       axios
         .get(
-          `https://api.themoviedb.org/3/search/movie?api_key=1ba9c86fcf862a52f20aacbfd8972b3b&query=${e.target.value}&page=1&include_adult=false`
+          `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${e.target.value}&page=1&include_adult=false`
         )
         .then((response) => {
           const { results } = response.data;

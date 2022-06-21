@@ -56,9 +56,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header = (props) => {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const handleChangeTheme = (mode) => {
+    const handleThemeChange = (mode) => {
         setTheme(mode);
-    }
+    };
 
     return (
         <div className='sticky top-0 w-full px-4 py-0 bg-gray-900'>
@@ -77,7 +77,6 @@ const Header = (props) => {
                         Favorite Movies
                     </button>
                 </Link>
-
                 <Search>
                     <SearchIconWrapper>
                         <SearchIcon />
@@ -91,17 +90,15 @@ const Header = (props) => {
                 {theme === "dark" ? (
                     <FaSun
                         className="w-8 h-8 text-white"
-                        onClick={() => handleChangeTheme("light")}
+                        onClick={() => handleThemeChange("light")}
                     />
                 ) : (
                     <FaMoon
-                        className="w-8 h-8 text-white"
-                        onClick={() => handleChangeTheme("dark")}
+                        className="w-8 h-8 text-gray-500"
+                        onClick={() => handleThemeChange("dark")}
                     />
                 )}
             </Toolbar>
-
-
         </div>
     )
 }

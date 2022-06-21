@@ -106,7 +106,7 @@ const Homepage = (props) => {
   } else {
     return (
       <Layout title={title} onKeyDown={(e) => handleSearch(e)}>
-        <div className="py-8 mx-16 text-black font-bold text-2xl">Now Playing Movies</div>
+        <div className="py-8 mx-16 text-black dark:text-white font-bold text-2xl">Now Playing Movies</div>
         <div className='grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-3 lg:grid-cols-5 m-4 gap-8 md:gap-5'>
           {movie.map((item) => (
             <Card
@@ -119,7 +119,7 @@ const Homepage = (props) => {
             />
           ))}
         </div>
-        <button onClick={() => fetchData2()} className='bg-slate-500 hover:bg-slate-600 max-w-full my-12 mx-12 px-10 py-5 shadow-lg shadow-gray-900 text-white items-center text-center font-bold rounded-lg'>CLICK for Load More...</button>
+        <button onClick={() => fetchData2()} className='bg-slate-500 hover:bg-slate-600 dark:bg-slate-800 dark:hover:bg-slate-700 max-w-full my-12 mx-12 px-10 py-5 shadow-lg shadow-gray-900 dark:shadow-gray-600 dark:text-white text-gray-200 items-center text-center font-bold rounded-lg'>CLICK for Load More...</button>
       </Layout>
     );
   }

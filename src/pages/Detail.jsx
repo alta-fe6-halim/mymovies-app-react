@@ -46,9 +46,9 @@ const Detail = (props) => {
     } else {
         return (
             <Layout title={title}>
-                <div className="py-10 text-black text-center font-bold text-2xl">Detail Movie</div>
-                <div className="flex flex-col max-w-xl py-4 shadow-lg shadow-black bg-slate-100 my-3 m-auto rounded-xl">
-                    <div className='font-bold p-2 m-auto text-lg'>{movie.title}</div>
+                <div className="py-10 text-black dark:text-white text-center font-bold text-2xl">Detail Movie</div>
+                <div className="flex flex-col dark:text-white max-w-xl py-4 shadow-lg shadow-black dark:shadow-gray-600 bg-slate-100 dark:bg-slate-800 my-3 m-auto rounded-xl">
+                    <div className='font-bold p-2 m-auto  text-lg'>{movie.title}</div>
                     <div>
                         <img className='m-auto rounded-sm py-3' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt="poster" />
                     </div>
@@ -64,7 +64,7 @@ const Detail = (props) => {
                     <div className='p-2 px-10'><span className='font-bold'>Average: </span>Vote {movie.vote_average}</div>
                     <div className='p-2 px-10'><span className='font-bold'>Popularity: </span>{movie.popularity}</div>
                 </div>
-                <p className='p-6'>WATCH TRAILER</p>
+                <p className='p-6 dark:text-white font-bold'>WATCH TRAILER</p>
                 {videos.map((item) => (
                     <iframe
                         key={item.id}

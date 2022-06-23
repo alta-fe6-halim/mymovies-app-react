@@ -100,7 +100,7 @@ const Homepage = (props) => {
   if (loading) {
     return (
       <div className='w-1/2 h-full py-60 m-auto'>
-        <Lottie loop autoplay animationData={Wwoman} />;
+        <Lottie loop autoplay animationData={Wwoman} />
       </div>
     );
   } else {
